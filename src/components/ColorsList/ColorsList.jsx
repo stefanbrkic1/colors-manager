@@ -2,11 +2,25 @@ import "./colors-list.scss";
 import { useSelector } from "react-redux";
 import ColorItem from "../ColorItem/ColorItem";
 import Modal from "../Modal/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ColorsList() {
+  const [searchText, setSearchText] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { colorsData } = useSelector((state) => state.colors);
+  const [filteredColors, setFilteredColors] = useState([]);
+  const [noMatching, setNoMatching] = useState(false);
+
+  useEffect(() => {
+    const regex = new RegExp(searchText, "i");
+    const filtered = colorsData.colors.filter((color) =>
+      regex.test(color.name)
+    );
+    filtered.length === 0 ? setNoMatching(true) : setNoMatching(false);
+
+    setFilteredColors(filtered);
+  }, [searchText, colorsData]);
+
   return (
     <div className="colors-container">
       <div className="colors-container-top">
@@ -15,6 +29,8 @@ function ColorsList() {
             type="text"
             name="text"
             className="input"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search..."
           />
           <button className="search__btn">
@@ -60,10 +76,24 @@ function ColorsList() {
 
       <div className="colors-list">
         {colorsData.colors &&
+          filteredColors.length === 0 &&
+          noMatching !== true &&
           colorsData.colors.map((colorItem) => {
             return <ColorItem key={colorItem.name} colorItem={colorItem} />;
           })}
+
+        {colorsData.colors &&
+          filteredColors.length !== 0 &&
+          noMatching === false &&
+          filteredColors.map((colorItem) => {
+            return <ColorItem key={colorItem.name} colorItem={colorItem} />;
+          })}
+
+        {filteredColors.length === 0 && noMatching === true && (
+          <div className="no-match">No matching colors found.</div>
+        )}
       </div>
+
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
