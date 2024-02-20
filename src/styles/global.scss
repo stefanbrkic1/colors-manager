@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "InterRegular";
+  src: url(./assets/fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: "InterSemiBold";
+  src: url(./assets/fonts/Inter-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "InterBold";
+  src: url(./assets/fonts/Inter-Bold.ttf);
+}
+
+$background-color: #121212;
+$background-secondary-color: #1d1d1d;
+$text-color-white: white;
+$text-color-black: #212427;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16rem;
+  font-family: "InterRegular", sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+#root {
+  width: 100%;
+}
