@@ -37,7 +37,7 @@ function ColorsList() {
           className="button"
           onClick={() => setIsModalOpen(true)}
         >
-          <span className="button__text">Add Item</span>
+          <span className="button__text">Add Color</span>
           <span className="button__icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"

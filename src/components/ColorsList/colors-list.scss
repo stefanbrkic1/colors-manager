@@ -16,14 +16,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .colors-list {
     height: 100%;
     overflow-y: scroll;
     position: relative;
-    padding-right: 13px;
+    padding: 30px 20px 10px 20px;
+    border-top: 3px solid white;
   }
 }
 
@@ -47,9 +48,10 @@
 }
 
 .button .button__text {
-  transform: translateX(30px);
+  transform: translateX(26px);
   color: #fff;
-  font-weight: 600;
+  font-size: 14rem;
+  font-family: $primary-font-bold;
 }
 
 .button .button__icon {
@@ -103,7 +105,7 @@
   outline: none;
   font-size: 14px;
   font-weight: 500;
-  background-color: #3c3c3f;
+  background-color: #f8931d;
   caret-color: #f7f7f8;
   color: #fff;
   padding: 7px 10px;
@@ -112,6 +114,12 @@
   border-bottom-left-radius: 7px;
   margin-right: 1px;
   transition: all 0.2s ease;
+
+  &::placeholder {
+    color: white;
+    font-weight: bold;
+    font-family: $primary-font;
+  }
 }
 
 .input:hover {
@@ -119,7 +127,7 @@
 }
 
 .input:focus {
-  border: 2px solid #34974d;
+  border: 2px solid white;
 }
 
 .search__btn {
@@ -153,7 +161,6 @@
 ::-webkit-scrollbar-thumb {
   background: white; /* Color of the thumb */
   height: 130px;
-  border-radius: 5px;
 }
 
 /* Handle on hover */

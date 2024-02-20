@@ -47,7 +47,7 @@ function Modal({ setIsModalOpen }) {
     <>
       <div className="modal">
         <div className="modal-top">
-          <div className="modal-title">Add Color</div>
+          <div className="modal-title">New Color</div>
 
           <div className="modal-title-right">
             {inputError && <span>{inputError}</span>}

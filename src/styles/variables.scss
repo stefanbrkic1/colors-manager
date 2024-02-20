@@ -3,12 +3,14 @@
   src: url(../assets/fonts/Inter-Regular.ttf);
 }
 
+@font-face {
+  font-family: "InterBold";
+  src: url(../assets/fonts/Inter-Bold.ttf);
+}
+
 $primary-color: #3aa856;
-
 $primary-font: "Inter", sans-serif;
-
-$background-color: #121212;
-$background-secondary-color: #242424;
-
+$primary-font-bold: "InterBold", sans-serif;
+$background-secondary-color: #f8fff4;
 $text-color-white: white;
 $text-color-black: #212427;
