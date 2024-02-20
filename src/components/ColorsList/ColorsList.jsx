@@ -1,8 +1,11 @@
 import "./colors-list.scss";
 import { useSelector } from "react-redux";
 import ColorItem from "../ColorItem/ColorItem";
+import Modal from "../Modal/Modal";
+import { useState } from "react";
 
 function ColorsList() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { colorsData } = useSelector((state) => state.colors);
   return (
     <div className="colors-container">
@@ -29,7 +32,11 @@ function ColorsList() {
           </button>
         </div>
 
-        <button type="button" className="button">
+        <button
+          type="button"
+          className="button"
+          onClick={() => setIsModalOpen(true)}
+        >
           <span className="button__text">Add Item</span>
           <span className="button__icon">
             <svg
@@ -57,6 +64,7 @@ function ColorsList() {
             return <ColorItem key={colorItem.name} colorItem={colorItem} />;
           })}
       </div>
+      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
 }
