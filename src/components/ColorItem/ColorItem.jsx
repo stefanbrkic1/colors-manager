@@ -1,7 +1,12 @@
 import "./color-item.scss";
 import PropTypes from "prop-types";
+import { remove } from "../../app/slices/colorsSlice";
+import { useDispatch } from "react-redux";
 
 function ColorItem({ colorItem }) {
+  const dispatch = useDispatch();
+  const removeColor = (colorName) => dispatch(remove(colorName));
+
   return (
     <div className="color-item">
       <div className="color-item-left">
@@ -21,7 +26,10 @@ function ColorItem({ colorItem }) {
           <div className="color-format">rgb:</div>
           <div className="color-rgb">{colorItem.rgb}</div>
         </div>
-        <button type="button"></button>
+        <button
+          type="button"
+          onClick={() => removeColor(colorItem.name)}
+        ></button>
       </div>
     </div>
   );

@@ -25,7 +25,16 @@ const colorsSlice = createSlice({
     colorsData: [],
     error: null,
   },
-  reducers: {},
+  reducers: {
+    remove: (state, action) => {
+      state.colorsData.colors = state.colorsData.colors.filter(
+        (color) => color.name !== action.payload
+      );
+    },
+    add: (state, action) => {
+      state.colorsData.colors = [action.payload, ...state.colorsData.colors];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchColors.pending, (state) => {
       state.loading = true;
@@ -40,5 +49,7 @@ const colorsSlice = createSlice({
     });
   },
 });
+
+export const { remove, add } = colorsSlice.actions;
 
 export default colorsSlice.reducer;
