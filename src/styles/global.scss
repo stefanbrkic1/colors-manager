@@ -1,22 +1,4 @@
-@font-face {
-  font-family: "InterRegular";
-  src: url(./assets/fonts/Inter-Regular.ttf);
-}
-
-@font-face {
-  font-family: "InterSemiBold";
-  src: url(./assets/fonts/Inter-SemiBold.ttf);
-}
-
-@font-face {
-  font-family: "InterBold";
-  src: url(./assets/fonts/Inter-Bold.ttf);
-}
-
-$background-color: #121212;
-$background-secondary-color: #1d1d1d;
-$text-color-white: white;
-$text-color-black: #212427;
+@import "./variables.scss";
 
 * {
   margin: 0;
@@ -33,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 16rem;
-  font-family: "InterRegular", sans-serif;
+  font-family: $primary-font, sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
 }
@@ -41,5 +23,5 @@ body {
 #root {
   width: 100%;
   height: 100svh;
-  background-color: $background-color;
+  position: relative;
 }
