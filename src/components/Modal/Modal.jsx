@@ -29,7 +29,7 @@ function Modal({ setIsModalOpen }) {
       return;
     }
 
-    const hexValue = colorCode.slice(1, colorCode.length);
+    const hexValue = colorCode.slice(1, colorCode.length).toUpperCase();
     const rgbValue = hexToRgba(hexValue).match(/\d+/g);
 
     dispatch(
