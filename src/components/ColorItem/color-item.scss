@@ -58,6 +58,12 @@
       background-position: center;
       background-size: contain;
       cursor: pointer;
+      margin-left: 15px;
+      transition: transform 90ms ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
