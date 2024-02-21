@@ -1,8 +1,12 @@
-# React + Vite
+# Colors Manager | Technical Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was done as a Technical Task from "The Unit" Software Company. The Task was to build a simple one-page app that manages color definitions with API. <a href="https://colors-manager.vercel.app/">View Demo</a>
 
-Currently, two official plugins are available:
+## Setting up Development Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm install` -> Install the packages.
+- `npm run dev` -> Starts the development server.
+
+## Author
+
+Stefan Brkić

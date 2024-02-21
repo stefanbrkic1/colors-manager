@@ -9,7 +9,7 @@ function ColorsList() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { colorsData } = useSelector((state) => state.colors);
   const [filteredColors, setFilteredColors] = useState([]);
-  const [noMatching, setNoMatching] = useState(false);
+  const [noMatchingFilter, setNoMatchingFilter] = useState(false);
 
   useEffect(() => {
     const regex = new RegExp(searchText, "i");
@@ -18,7 +18,9 @@ function ColorsList() {
       const filtered = colorsData.colors.filter((color) =>
         regex.test(color.name)
       );
-      filtered.length === 0 ? setNoMatching(true) : setNoMatching(false);
+      filtered.length === 0
+        ? setNoMatchingFilter(true)
+        : setNoMatchingFilter(false);
       setFilteredColors(filtered);
     }
   }, [searchText, colorsData]);
@@ -79,20 +81,20 @@ function ColorsList() {
       <div className="colors-list">
         {colorsData.colors &&
           filteredColors.length === 0 &&
-          noMatching !== true &&
+          noMatchingFilter !== true &&
           colorsData.colors.map((colorItem) => {
             return <ColorItem key={colorItem.name} colorItem={colorItem} />;
           })}
 
         {colorsData.colors &&
           filteredColors.length !== 0 &&
-          noMatching === false &&
+          noMatchingFilter === false &&
           filteredColors.map((colorItem) => {
             return <ColorItem key={colorItem.name} colorItem={colorItem} />;
           })}
 
-        {filteredColors.length === 0 && noMatching === true && (
-          <div className="no-match">No matching colors found.</div>
+        {filteredColors.length === 0 && noMatchingFilter === true && (
+          <div className="no-match">No matchingFilter colors found.</div>
         )}
       </div>
 
