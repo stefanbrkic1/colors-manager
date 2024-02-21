@@ -13,12 +13,14 @@ function ColorsList() {
 
   useEffect(() => {
     const regex = new RegExp(searchText, "i");
-    const filtered = colorsData.colors.filter((color) =>
-      regex.test(color.name)
-    );
-    filtered.length === 0 ? setNoMatching(true) : setNoMatching(false);
 
-    setFilteredColors(filtered);
+    if (colorsData.colors) {
+      const filtered = colorsData.colors.filter((color) =>
+        regex.test(color.name)
+      );
+      filtered.length === 0 ? setNoMatching(true) : setNoMatching(false);
+      setFilteredColors(filtered);
+    }
   }, [searchText, colorsData]);
 
   return (
